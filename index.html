@@ -22,7 +22,7 @@
 <body>
     <div class="hidder"></div>
 
-    <audio class="tema" preload="auto" loop></audio>
+    <audio autoplay="True" class="tema" src="./doc/theme.mp3" preload="auto" loop autoplay></audio>
 
     <a href="./principal.html" onclick="time()">
         <div class="logo"><img src="./doc/logo.png"></div>
@@ -38,16 +38,12 @@
     <script>
         let production = document.createElement("video");
         let fundo = document.querySelector(".fundo");
-        let tema = document.querySelector(".tema");
         
-        tema.src= "doc/theme.mp3" 
         production.src = "doc/production.mp4";
-        
         
         production.addEventListener('canplay', ev => {
             fundo.appendChild(production);
             production.play();
-            tema.play();
             setTimeout(ev => {
                 document.querySelector('.hidder').remove();
             }, 100)
