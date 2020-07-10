@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./css/principal.css">
+	<script src="cordova.js"></script>
+	<script src="init.js"></script>
+</head>
+
+<body>
+	<audio class="tema" src="./doc/theme.mp3" preload="auto" loop autoplay></audio>
+	<audio class="start" src="./doc/next.mp3" preload="auto"></audio>
+	<audio class="next" src="./doc/next.mp3" preload="auto"></audio>
+
+	<header>
+		<div class="logo"><img src="./doc/logo.png"></div>
+
+		<div class="fundo">
+			<img src="./doc/principal.gif">
+		</div>
+	</header>
+
+	<main>
+		<div>
+			<a href="./GAMEPLAY/game.html">
+				<button onclick="time()">Iniciar</button>
+			</a>
+		</div>
+		<div>
+			<a href="./estatisticas.html">
+				<button onclick="time()">Estatísticas</button>
+			</a>
+		</div>
+		<div>
+			<a href="./opcoes.html">
+				<button onclick="time()">Opções</button>
+			</a>
+		</div>
+	</main>
+
+	<script>
+		let song = document.querySelector('audio.tema');
+		let next = document.querySelector('audio.next');
+		let start = document.querySelector('audio.start');
+
+		start.volume = 1;
+		next.volume = localStorage.getItem('volume_effect');
+
+
+
+		(localStorage.getItem('cont_start')) != 0 ? next.play() : start.play();
+		localStorage.setItem('cont_start', 1);
+
+
+		let i = 0;
+		song.volume = 0;
+		song.currentTime = localStorage.getItem('theme');
+
+		loop = setInterval(fade, 100)
+		function fade() {
+			song.volume = (i / 10)
+			i += 0.25;
+			if (i > (localStorage.getItem('volume_music')) * 10) clearInterval(loop);
+		};
+
+
+		function time() {
+			localStorage.setItem('theme', song.played.end(0));
+		}
+
+	</script>
+</body>
+
+</html>

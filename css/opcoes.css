@@ -1,0 +1,120 @@
+* { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-tap-highlight-color: transparent; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0
+}
+body{
+    display: flex;
+    flex-direction: column;
+    background: #525252;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 20vh;
+} 
+header div.sessao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75vw; 
+    height: 50%;
+    color: #FFFFFF;
+    font-family: monospace;
+    font-size: 7vw;
+    border: outset 4px #ffffff;
+}
+header div.retorno{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13vw; 
+    height: 50%;
+    border: outset 4px #ffffff;
+}
+header div.retorno a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+main > div{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    height: 50%;	
+}
+main div button{
+    display: flex;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 6vw;
+    width: 80vw;
+    background-color: #f0932b;
+    color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0.5vw 0.5vh 10px #000000;
+}
+main div.lista button{
+    font-size: 4vw;
+    width: 70vw;
+    margin-top: 1.5vh;
+}
+button.eletronica{
+    background-image: linear-gradient(to right, #993399 , #03acfa);
+}
+button.faroeste{
+    background-image: linear-gradient(to right, #d84a1f, #f0be80);
+    width: 60vw;
+}
+.select{
+    animation: effect linear 1s;
+    color: #fff;
+    opacity: 1;
+}
+.wiped{
+    color: #000;
+    opacity: 0.5;
+}
+@keyframes effect {
+    0% { box-shadow: 0.5vw 0.5vh 10px #ffffff;} 
+    100% { box-shadow: 0.5vw 0.5vh 10px #000000;}
+}
+
+
+
+footer{
+    display: flex;
+    height: 30vh;
+}
+footer > div{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+}
+footer > div svg{
+    width: 80%;
+    height: 80%;
+    border: #000000 solid 2px;
+}
+footer div.efeito svg{
+    background-color: #525252;
+    opacity: 1;
+}
+footer div.musica svg{
+    background-color: #525252;
+}

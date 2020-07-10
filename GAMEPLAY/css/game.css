@@ -1,0 +1,399 @@
+
+
+* {
+    box-sizing: border-box;
+	outline: none !important;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-tap-highlight-color: transparent; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+}
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y:hidden;
+    overflow-x:hidden;
+}
+body {
+    display: flex;
+    flex-direction: column
+}
+
+header {
+    display: flex;
+    height: 18vh;
+    width: 100vw;
+    background: #525252;
+
+    --bright: 1;
+    filter: brightness(var(--bright));
+}
+.healing{
+    animation: healing linear 1s;
+}
+@keyframes healing {
+	0% { background: #87ceeb; } 
+	100% { background: #525252; }
+}
+header > div {
+    width: 25%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    flex-direction: column;
+}
+header > div > svg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header div svg#preview{
+    fill: #fff;
+    opacity: 0;
+
+    transform: scale(0.8);
+}
+.below path{
+    animation: below linear 1s;
+}
+@keyframes below {
+	0% { stroke: #F87; } 
+	100% { stroke: #000; }
+}
+.up path{
+    animation: up linear 1s;
+}
+@keyframes up {
+	0% { stroke: #90ee90; } 
+	100% { stroke: #000; }
+}
+.effect path{
+    animation: effect linear 1s infinite;
+}
+@keyframes effect {
+	0% { stroke: #ffff00; } 
+	100% { stroke: #000; }
+}
+
+p{
+    text-align: center;
+    color: #FFF9F9;
+    font-size: 4.7vw;
+    font-family:  monospace;
+    text-shadow: 0 0 0.2em #000000;
+
+    --elastic: 0px;
+    opacity: 0;
+}     
+
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 74vh;
+    width: 100vw;
+    background: #666666;
+
+    --bright: 1;
+    filter: brightness(var(--bright));
+}
+main div.texto{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35%;
+    width: 95%;
+}
+main div.texto h4{
+    font-weight: normal;
+    color: #FFFFFF;
+    font-size: 4.5vw;
+    font-family: monospace;
+    text-shadow: #000000 0.1em 0.1em 0.2em;
+}
+main div.texto h4::after {
+    content: '|';
+    opacity: 1;
+    margin-left: 5px;
+    animation: blink .7s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+
+main div.barra {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5%;
+    margin-top: -3.7vh;
+}
+main div.barra progress{
+    opacity: 0;
+}
+
+main div.avatar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    height: 55%;
+    width: 170%;
+    position: relative;
+    z-index: 2;
+}
+div.avatar > div{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+main div.avatar div.foto{
+    width: 70vw;
+    height: 100%;
+}
+main div.avatar img {
+    width: 100%;
+    height: 100%;
+
+    --trans: 0px;
+    --rot: 0deg;
+    transform: translateX(var(--trans)) rotate(var(--rot));
+}
+main div.avatar img.return {
+    transition: .3s;
+    transform: translateX(0px) rotate(0deg);
+}
+
+main div.avatar div.left{
+    width: 50vw;
+    margin-bottom: 10vh;
+
+    transform: translateX(var(--elastic));
+}
+main div.avatar div.right{
+    width: 50vw;
+    margin-bottom: 10vh;
+
+    transform: translateX(var(--elastic));
+}
+
+
+
+main div.nome {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    flex: none;
+    font-family: monospace;
+    color: #FFFFFF;
+    font-size: 5vw;
+    text-shadow: 0 0 0.2em #000000;
+    font-variant: small-caps;
+}
+
+
+main div.over{
+    display: flex;
+    position: relative;
+    z-index: 6;
+    justify-content: center;
+    align-items: center;
+    margin-top: -16vh;
+    width: 90vw;
+    height: 10vh;
+    background-image: radial-gradient(#222222, #000 80%);
+    border: 1px groove #Fff;
+
+    --size: 0;
+    transition: .6s;
+    transform: scale(var(--size));
+    opacity: 0;
+}
+main div.over a{
+    text-decoration: none;
+    color: #FFF9F9;
+    font-family: monospace;
+    font-size: 10vw;
+
+	animation: flash linear 1s infinite;
+}
+@keyframes flash {
+	0% { text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87; } 
+    50% { text-shadow: 0 0 0.2em #fff;
+        color: #f87; } 
+	100% { text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87; }
+}
+
+main div.try{
+    display: flex;
+    position: relative;
+    
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: -1vh;
+    width: 75vw;
+    height: 4.5vh;
+    background-color:rgba(0, 0, 0, 0.6);
+    border-radius: 1vw;
+
+    --fix: 0;
+    --horizontal: -10vw;
+    transition: 2s;
+    transform: translateY(var(--horizontal));
+    opacity: 0;
+    z-index: var(--fix);
+}
+main div.try a{
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 4.5vw;
+    background: -webkit-linear-gradient(#eee 40%, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 0.2em #F87;
+    
+    --horizontal_back: -5vw;
+    transition: 2.5s;
+    transform: translateY(var(--horizontal_back));
+}
+
+
+main div.danger{
+    display: flex;
+    position: relative;
+    width: 65vw;
+    margin-top: -38vh;
+    transition: 1s;
+    z-index: 3;
+
+    --size_danger: 0;
+    transform: scale(var(--size_danger));
+    opacity: 0;
+}
+main div.danger img{
+    width: 100%;
+}
+
+
+main div.symptom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    position: relative;
+    width: 90vw;
+    height: 20vh;
+    margin-top: -24vh;
+    text-align: center;
+    font-family:  monospace;
+    color: #fff;
+    transition: 2s;
+    z-index: 5;
+
+
+    --vertical : -100vw;
+    transform: translateX(var(--vertical));
+}
+main div.symptom h1{
+    text-shadow: 0 0 0.2em #f87;
+    font-size: 5vw;
+    background: linear-gradient(to right, #e72a3a 10%, #fff 50%, #5bdaff 60%);
+    background-size: 200% auto;
+    background-clip: text;
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+    animation: elastic_gradient 2s linear infinite;
+}
+@keyframes elastic_gradient{
+	to { background-position: 200% center; }
+}
+
+main div.symptom h2{
+    text-shadow: 0 0 0.2em #F87;
+    font-size: 4.7vw;
+    transition: 2.3s;
+
+    --vertical_side : 180vw;
+    transform: translateX(var(--vertical_side));
+}
+
+
+
+footer {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    height: 8vh;
+    background: #525252;
+    border: inset 1px ;
+
+    --bright: 1;
+    filter: brightness(var(--bright));
+}
+
+footer div.contador{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    color: #FFFFFF;
+    font-size: 4.5vw;
+    font-family: monospace;
+    text-shadow: 0 0 0.2em #fff;
+}
+
+footer div.efeito{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border: inset 1px ;
+    position: relative;
+}
+footer div.efeito img{
+    width: 100%;
+}
+footer div.timer{
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 4.5vw;
+    font-family: monospace;
+}
+
+footer div.selos{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;    
+}
+footer div.selos > div{
+    width: 24%;
+    height: 60%;  
+    display: flex;
+    justify-content: center;
+}
+footer div.selos > div img{
+    width: 90%;
+    height: 100%; 
+} 
+
+footer > div > img{
+    height: 100%;
+    width: 100%;
+}

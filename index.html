@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="cordova.js"></script>
+    <script src="init.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <style>
+        .hidder {
+            position: absolute;
+            background: black;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 999999999999;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hidder"></div>
+
+    <audio class="tema" src="./doc/theme.mp3" preload="auto" loop autoplay></audio>
+
+    <a href="./principal.html" onclick="time()">
+        <div class="logo"><img src="./doc/logo.png"></div>
+    </a>
+    <div class="button">press button</div>
+
+    <div class="fundo">
+        <div class="intro">
+            <img src="./doc/intro4.gif">
+        </div>
+    </div>
+
+    <script>
+        let production = document.createElement("video");
+        let fundo = document.querySelector(".fundo");
+        
+        production.src = "doc/production.mp4";
+        
+        production.addEventListener('canplay', ev => {
+            fundo.appendChild(production);
+            production.play();
+            setTimeout(ev => {
+                document.querySelector('.hidder').remove();
+            }, 1000)
+        });
+
+        if (localStorage.getItem('list') == null) localStorage.setItem('list', "/");
+        if (localStorage.getItem('deaths') == null) localStorage.setItem('deaths', 0);
+        if (localStorage.getItem('survives') == null) localStorage.setItem('survives', 0);
+
+        localStorage.setItem('volume_music', 0.5);
+        localStorage.setItem('volume_effect', 1);
+        localStorage.setItem('volume_game', 0.25);
+        localStorage.setItem('cont_start', 0);
+
+
+        let stop = 0;
+        let logo = document.querySelector('div.logo');
+        let song = document.querySelector('audio.tema');
+        let intro = document.querySelector('div.intro');
+        // let production = document.querySelector('div.fundo video');
+
+        song.currentTime = 0;
+        song.volume = 0.9;
+
+        function time() {
+            localStorage.setItem('theme', song.played.end(0));
+        }
+
+
+        setTimeout(function () {
+            let i = 0;
+            let y = 0;
+
+            stop = setInterval(fade, 50);
+
+            function fade() {
+                production.pause();
+
+                logo.style.setProperty('opacity', i);
+                i += 0.3;
+                intro.style.setProperty('opacity', y);
+                y += 0.1;
+
+                if (y > 1) clearInterval(stop);
+            };
+        }, 4525)
+    </script>
+</body>

@@ -1,0 +1,84 @@
+* { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-tap-highlight-color: transparent; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0
+}
+body{
+    display: flex;
+    flex-direction: column;
+    background: #525252;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 20vh;
+} 
+header div.sessao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75vw; 
+    height: 50%;
+    color: #FFFFFF;
+    font-family: monospace;
+    font-size: 7vw;
+    border: outset 4px #ffffff;
+}
+header div.retorno{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13vw; 
+    height: 50%;
+    border: outset 4px #ffffff;
+}
+header div.retorno a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+}
+main div.jogador{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5vh;
+    width: 90vw;
+    color: #FFFFFF;
+    font-family: monospace;
+    font-size: 8vw;
+    border-bottom: double #9a9a9a 1vh;
+}
+
+footer{
+    display: flex;
+    height: 50vh;
+}
+footer > div{
+    display: flex;
+    align-items: flex-start;
+}
+footer div table{
+    display: flex;
+    background: #ffffff;
+    border-radius: 20px;
+}
+footer div table td{
+    padding: 3vw;
+    width: 100vw;
+    height: 20vh;
+    text-align: center;
+    font-size: 5vw;
+    font-family: monospace;
+    color: #f0932b;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="./css/estatisticas.css">
+	<script src="cordova.js"></script>
+	<script src="init.js"></script>
+	</head>
+
+	<body>
+		<audio class="tema" src="./doc/theme.mp3" preload="auto" loop autoplay ></audio>
+		<audio class="next" src="./doc/next.mp3" preload="auto" autoplay></audio>
+
+
+
+		<header>
+			<div onclick="time()" class="retorno">
+				<a href="principal.html">
+					<svg width="50%" height="50%" version="1.1" viewBox="0 0 1000 1000">
+							<path d="m535.54 882.82v-84.919l12.671-1.0396c17.901-1.4688 36.097-5.5961 52.096-11.816 7.5699-2.9429 14.492-5.947 15.382-6.6759 0.89058-0.7287 5.991-3.839 11.334-6.9115 12.618-7.256 19.705-12.776 34.217-26.65 14.103-13.484 23.617-26.268 35.596-47.833 24.845-44.727 30.343-107.3 14.211-161.76-16.794-56.691-65.577-107.44-119.99-124.83-30.355-9.6988-28.934-9.5605-107.88-10.494-50.914-0.60179-74.755-0.30696-75.927 0.93873-1.1961 1.2727 10.005 14.224 37.44 43.291l39.146 41.475-56.062 59.688-56.062 59.688-135.87-144.56-135.87-144.56 135.53-144.22c113.63-120.92 135.92-143.88 137.95-142.14 1.3307 1.1414 26.712 27.897 56.403 59.458l53.984 57.381-38.96 41.35c-21.428 22.742-38.536 42.08-38.016 42.976 0.57039 0.98201 30.448 1.6266 75.396 1.6266 89.476 0 111.79 2.1501 149.76 14.433 25.284 8.1785 63.079 25.328 72.72 32.996 2.6716 2.125 7.8997 5.4888 11.618 7.4754 11.576 6.1846 39.324 29.542 58.598 49.329 22.728 23.33 42.74 50.313 57.491 77.529 14.636 26.998 19.874 39.402 29.826 70.64 10.386 32.595 14.355 53.214 16.832 87.436 2.2878 31.603 0.23391 69.982-5.279 98.634-3.3894 17.617-16.596 61.418-23.597 78.264-6.0504 14.557-28.131 55.42-33.661 62.294-2.7301 3.3932-8.1568 10.94-12.06 16.771-17.275 25.811-61.676 67.171-92.486 86.15-31.549 19.435-47.888 26.902-84.153 38.454-26.458 8.4278-42.406 11.571-64.811 12.771-9.351 0.501-19.37 1.2189-22.264 1.5953l-5.2623 0.68428z" fill="#fff" style="paint-order:normal"/>
+					</svg> 
+				</a>
+			</div>	
+
+			<div class="sessao">Estatísticas</div>
+		</header>
+
+
+		<main>
+			<div class="jogador"></div>
+		</main>
+
+
+		<footer>
+			<div class="dados">
+				<table>
+   					<tr><td> Máximo de periodos sobrevividos</td> <td  class="survives"> </td> </tr>
+   					<tr><td >Mortes</td> <td class="deaths"> </td> </tr>
+				</table>
+			</div>
+		</footer>
+		
+
+
+		<script>
+			let nome = document.querySelector('div.jogador');
+			let sobrevividos = document.querySelector('td.survives');
+			let mortes = document.querySelector('td.deaths');
+		
+			nome.innerHTML = localStorage.getItem('nome');
+			sobrevividos.innerHTML = localStorage.getItem('survives');
+			mortes.innerHTML = localStorage.getItem('deaths');
+			
+
+			let song = document.querySelector('audio.tema');
+			let next = document.querySelector('audio.next');
+
+			song.volume = localStorage.getItem('volume_music');
+			next.volume = localStorage.getItem('volume_effect');
+
+
+			song.currentTime = localStorage.getItem('theme');
+
+			function time(){
+				localStorage.setItem('theme', song.played.end(0));
+			}
+		</script>	
+	
+	</body>
+</html>
