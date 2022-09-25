@@ -1,3 +1,3 @@
 # Vitae
 
-Projeto Integrador submetido ao Instituto Federal Catarinense – Campus Camboriú, como requisito parcial para obtenção do título de Técnico em Informática.
+Jogo Mobile voltado para o auxilio à qualidade de vida. Desenvolvido como Projeto integrador durante o ensino médio em Informática.
